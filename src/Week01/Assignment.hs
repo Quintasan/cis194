@@ -9,7 +9,7 @@ toDigits :: Integer -> [Integer]
 toDigits n = reverse $ toDigitsRev n
 
 doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther = zipWith ($) (cycle [(*2), id])
+doubleEveryOther = reverse . zipWith ($) (cycle [id, (*2)]) . reverse
 
 sumDigits :: [Integer] -> Integer
 sumDigits numbers = sum . concat $ map toDigits numbers
